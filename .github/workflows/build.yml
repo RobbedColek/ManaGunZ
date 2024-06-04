@@ -1,7 +1,7 @@
-name: nightly
+name: test
 
-on: 
-  push
+on:
+  workflow_dispatch
 
 jobs:
   build:
@@ -24,18 +24,12 @@ jobs:
         export TAIL="Nightly_${CSHA}"
         make pkg && export FILEMANAGER=1 && make pkg
         export TAGGY="nightly_${CSHA}" && ./.github/scripts/name.sh
-    - name: Delete old assets
-      uses: mknejp/delete-release-assets@v1
-      with:
-        token: ${{ github.token }}
-        tag: nightly
-        assets: '*.pkg'
     - name: Create release
       uses: iTrooz/action-gh-release@update_tag
       with:
-        name: "Nightly Release"
-        tag_name: nightly
-        body: "Up-to-date packages including the latest updates to the repository.\n- Unless otherwise specified, this release has not been thoroughly tested.\n- For included changes, see the [commit log](https://github.com/Zarh/ManaGunZ/commits/master).\n\nUse at your own risk."
+        name: "Test Release"
+        tag_name: test
+        body: "Testing only!"
         files: |
           ./ManaGunZ*.pkg
           ./FileManager*.pkg
