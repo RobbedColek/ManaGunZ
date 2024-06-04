@@ -13,6 +13,7 @@ clean:
 release: $(addprefix release_, $(PAYLOADS))
 
 release_%:
+	@mkdir -p ./bin
 	$(eval MAMBA_VER = $(subst release_,,$@))
 	@echo building mamba_$(MAMBA_VER).bin
 	@make -f Makefile_release clean --no-print-directory
@@ -21,6 +22,7 @@ release_%:
 debug: $(addprefix debug_, $(PAYLOADS))
 
 debug_%:
+	@mkdir -p ./bin
 	$(eval MAMBA_VER = $(subst debug_,,$@))
 	@echo building debug/mamba_$(MAMBA_VER).bin
 	@make -f Makefile_debug clean --no-print-directory

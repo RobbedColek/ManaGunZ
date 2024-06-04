@@ -43,6 +43,7 @@ endef
 all: $(PAYLOADS)
 
 $(PAYLOADS):
+	@mkdir -p ../bin
 	$(do_payload)
 	@echo ----------------------------------------------------------------
 
