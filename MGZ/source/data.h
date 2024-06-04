@@ -255,4 +255,10 @@
 #include "mamba_490C_lz_bin.h"
 #include "mamba_loader_490C_bin.h"
 
+#include "erk_dumper_491C_bin.h"
+#include "payload_sky_491C_bin.h"
+#include "umount_491C_bin.h"
+#include "mamba_491C_lz_bin.h"
+#include "mamba_loader_491C_bin.h"
+
 #endif /* __DATA_H__ */
