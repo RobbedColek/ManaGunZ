@@ -18471,5 +18471,439 @@
 	#define bt_usb_audio_offset                              0x1070
 #endif
 
+#ifdef FIRMWARE_490C
+
+	#define FIRMWARE_VERSION                                 0x490
+
+	#ifdef PS3M_API
+		#define PS3MAPI_FW_TYPE                              "CEX MAMBA"
+		#define PS3MAPI_IDPS_1                               0x80000000003E2E30ULL
+		#define PS3MAPI_IDPS_2                               0x8000000000474AF4ULL
+		#define PS3MAPI_PSID                                 0x8000000000474B0CULL
+	#endif
+	#define FIRMWARE_CEX                                     FIRMWARE_VERSION
+
+	/* lv2 */
+	#define TOC                                              0x34FBA0
+
+	#define create_kernel_object_symbol                      0x11FAC
+	#define destroy_kernel_object_symbol                     0x11910
+	#define destroy_shared_kernel_object_symbol              0x11284
+	#define open_kernel_object_symbol                        0x125FC
+	#define open_shared_kernel_object_symbol                 0x1240C
+	#define close_kernel_object_handle_symbol                0x11A2C
+
+	#define alloc_symbol                                     0x64820
+	#define dealloc_symbol                                   0x64C5C
+	#define copy_to_user_symbol                              0xF868
+	#define copy_from_user_symbol                            0xFA84
+	#define copy_to_process_symbol                           0xF920
+	#define copy_from_process_symbol                         0xF730
+	#define process_read_memory_symbol                       0x267EB4
+	#define process_write_memory_symbol                      0x267D28
+	#define page_allocate_symbol                             0x60390
+	#define page_free_symbol                                 0x5FDF4
+	#define page_export_to_proc_symbol                       0x6052C
+	#define page_unexport_from_proc_symbol                   0x5FCE8
+	#define kernel_ea_to_lpar_addr_symbol                    0x70148
+	#define process_ea_to_lpar_addr_ex_symbol                0x7775C
+	#define set_pte_symbol                                   0x5E38C
+	#define map_process_memory_symbol                        0x77268
+	#define panic_symbol                                     0x26D5BC
+
+	#define memcpy_symbol                                    0x7E928
+	#define memset_symbol                                    0x4D668
+	#define memcmp_symbol                                    0x4C978
+	#define memchr_symbol                                    0x4C928
+	#define printf_symbol                                    0x2706A0
+	#define printfnull_symbol                                0x275114
+	#define sprintf_symbol                                   0x4EA90
+	#define snprintf_symbol                                  0x4E9FC
+	#define strcpy_symbol                                    0x4D814
+	#define strncpy_symbol                                   0x4D8DC
+	#define strlen_symbol                                    0x4D83C
+	#define strcat_symbol                                    0x4D744
+	#define strcmp_symbol                                    0x4D7C0
+	#define strncmp_symbol                                   0x4D868
+	#define strchr_symbol                                    0x4D77C
+	#define strrchr_symbol                                   0x4D94C
+
+	#define spin_lock_irqsave_ex_symbol                      0x26D78C
+	#define spin_unlock_irqrestore_ex_symbol                 0x26D760
+
+	#define create_process_common_symbol                     0x26B528
+	#define create_process_base_symbol                       0x26ABE4
+	#define load_process_symbol                              0x5004
+	#define process_kill_symbol                              0x26B334
+
+	#define ppu_thread_create_symbol                         0x13EC4
+	#define ppu_thread_exit_symbol                           0x13F7C
+	#define ppu_thread_join_symbol                           0x13FD0
+	#define ppu_thread_delay_symbol                          0x287A0
+	#define create_kernel_thread_symbol                      0x24B1C
+	#define create_user_thread_symbol                        0x25258
+	#define create_user_thread2_symbol                       0x2507C
+	#define start_thread_symbol                              0x23D48
+	#define run_thread_symbol                                0x23578
+	#define self_threading_symbol                            0x25864
+	#define register_thread_symbol                           0x267940
+	#define allocate_user_stack_symbol                       0x268128
+	#define deallocate_user_stack_symbol                     0x268090
+
+	#define mutex_create_symbol                              0x13638
+	#define mutex_destroy_symbol                             0x135D0
+	#define mutex_lock_symbol                                0x135C8
+	#define mutex_lock_ex_symbol                             0x1DB58
+	#define mutex_trylock_symbol                             0x135C4
+	#define mutex_unlock_symbol                              0x135C0
+
+	#define cond_create_symbol                               0x137A4
+	#define cond_destroy_symbol                              0x13754
+	#define cond_wait_symbol                                 0x1374C
+	#define cond_wait_ex_symbol                              0x1F144
+	#define cond_signal_symbol                               0x13728
+	#define cond_signal_all_symbol                           0x13704
+
+	#define semaphore_initialize_symbol                      0x30C50
+	#define semaphore_wait_ex_symbol                         0x30958
+	#define semaphore_trywait_symbol                         0x30540
+	#define semaphore_post_ex_symbol                         0x3068C
+
+	#define event_port_create_symbol                         0x13074
+	#define event_port_destroy_symbol                        0x134DC
+	#define event_port_connect_symbol                        0x13554
+	#define event_port_disconnect_symbol                     0x13480
+	#define event_port_send_symbol                           0x1306C
+	#define event_port_send_ex_symbol                        0x2B200
+
+	#define event_queue_create_symbol                        0x1337C
+	#define event_queue_destroy_symbol                       0x13304
+	#define event_queue_receive_symbol                       0x13148
+	#define event_queue_tryreceive_symbol                    0x13214
+
+	#define cellFsOpen_symbol                                0x2978F4
+	#define cellFsClose_symbol                               0x29775C
+	#define cellFsRead_symbol                                0x297898
+	#define cellFsWrite_symbol                               0x297804
+	#define cellFsLseek_symbol                               0x296E8C
+	#define cellFsStat_symbol                                0x297110
+	#define cellFsUtime_symbol                               0x298BFC
+	#define cellFsUnlink_internal_symbol                     0x19C644
+	#define cellFsRename_internal_symbol                     0x1970FC
+
+	#define cellFsUtilMount_symbol                           0x296C6C
+	#define cellFsUtilUmount_symbol                          0x298648
+	#define cellFsUtilNewfs_symbol                           0x298694
+
+	#define pathdup_from_user_symbol                         0x29C8D8
+	#define open_path_symbol                                 0x29762C
+	#define open_fs_object_symbol                            0x18A968
+	#define close_fs_object_symbol                           0x1898A4
+
+	#define storage_get_device_info_symbol                   0x279AF4
+	#define storage_get_device_config_symbol                 0x278F84
+	#define storage_open_symbol                              0x279504
+	#define storage_close_symbol                             0x2792F4
+	#define storage_read_symbol                              0x278864
+	#define storage_write_symbol                             0x278734
+	#define storage_send_device_command_symbol               0x2783F0
+	#define storage_map_io_memory_symbol                     0x2799B0
+	#define storage_unmap_io_memory_symbol                   0x27987C
+	#define new_medium_listener_object_symbol                0x974BC
+	#define delete_medium_listener_object_symbol             0x98CF4
+	#define set_medium_event_callbacks_symbol                0x99058
+
+	#define cellUsbdRegisterLdd_symbol                       0x260274
+	#define cellUsbdUnregisterLdd_symbol                     0x260224
+	#define cellUsbdScanStaticDescriptor_symbol              0x261474
+	#define cellUsbdOpenPipe_symbol                          0x261524
+	#define cellUsbdClosePipe_symbol                         0x2614D4
+	#define cellUsbdControlTransfer_symbol                   0x2613D8
+	#define cellUsbdBulkTransfer_symbol                      0x261358
+
+	#define decrypt_func_symbol                              0x3496C
+	#define lv1_call_99_wrapper_symbol                       0x4EEA4
+	#define modules_verification_symbol                      0x58AB4
+	#define authenticate_program_segment_symbol              0x5A90C
+
+	#define prx_load_module_symbol                           0x88C00
+	#define prx_start_module_symbol                          0x878CC
+	#define prx_stop_module_symbol                           0x88CA4
+	#define prx_unload_module_symbol                         0x87600
+	#define prx_get_module_info_symbol                       0x87088
+	#define prx_get_module_id_by_address_symbol              0x86F98
+	#define prx_get_module_id_by_name_symbol                 0x86FE8
+	#define prx_get_module_list_symbol                       0x87108
+	#define load_module_by_fd_symbol                         0x88230
+	#define parse_sprx_symbol                                0x85FB4
+	#define open_prx_object_symbol                           0x7F4F4
+	#define close_prx_object_symbol                          0x7FE04
+	#define lock_prx_mutex_symbol                            0x86F40
+	#define unlock_prx_mutex_symbol                          0x86F4C
+
+	#define extend_kstack_symbol                             0x700A0
+
+	#define get_pseudo_random_number_symbol                  0x228178
+	#define md5_reset_symbol                                 0x161E18
+	#define md5_update_symbol                                0x1628B8
+	#define md5_final_symbol                                 0x162A38
+	#define ss_get_open_psid_symbol                          0x22A660
+	#define update_mgr_read_eeprom_symbol                    0x223A70
+	#define update_mgr_write_eeprom_symbol                   0x2239B8
+	#define update_mgr_if_get_token_symbol                   0x2253D4
+
+	#define ss_params_get_update_status_symbol               0x50AB0
+
+	#define sm_get_temperature_symbol                        0x2635A0
+	#define sm_get_fan_policy_symbol                         0x262934
+	#define sm_set_fan_policy_symbol                         0x26472C
+	#define sm_get_temperature_patch                         0xC6A4
+	#define sm_get_fan_policy_patch                          0x9E38
+	#define sm_set_fan_policy_patch                          0xA334
+
+	#define SHA1_init_symbol                                 0x2CE67C
+	#define SHA1_update_symbol                               0x2CE6DC
+	#define SHA1_final_symbol                                0x2CE890
+	#define aescbccfb_dec_symbol                             0x2CCB70
+	#define aescbccfb_enc_symbol                             0x2CC920
+	#define get_path_by_fd_symbol                            0x29C174
+
+	#define ECDSA_1                                          0x59DC0
+	#define ECDSA_2                                          0x2D2B28
+	#define ECDSA_FLAG                                       0x474A80
+	#define sysmem_obj                                       0x474C38
+	#define qa_eeprom_offset                                 0x48C06
+
+	#define syscall_table_symbol                             0x363BE0
+	#define syscall_call_offset                              0x275BF8
+
+	#define read_bdvd0_symbol                                0x1A4614
+	#define read_bdvd1_symbol                                0x1A6240
+	#define read_bdvd2_symbol                                0x1B33F8
+
+	#define storage_internal_get_device_object_symbol        0x277EA8
+
+	#define hid_mgr_read_usb_symbol                          0x10243C
+	#define hid_mgr_read_bt_symbol                           0xFC314
+
+	#define bt_set_controller_info_internal_symbol           0xF0380
+
+	#define device_event_port_send_call                      0x282060
+	#define device_event_port_send_call_restore              0x28E92748
+
+	#define ss_pid_call_1                                    0x213294
+
+	#define process_map_caller_call                          0x4D24
+
+	#define read_module_header_call                          0x7F3E8
+	#define read_module_body_call                            0x671C
+	#define load_module_by_fd_call1                          0x88A9C
+
+	#define shutdown_copy_params_call                        0xAACC
+	#define shutdown_copy_params_call_restore                0x75644F48
+
+	#define fsloop_open_call                                 0x297A8C
+	#define fsloop_close_call                                0x297ADC
+	#define fsloop_read_call                                 0x297B1C
+
+	#define shutdown_patch_offset                            0xAAB8
+	#define module_sdk_version_patch_offset                  0x267170
+	#define module_add_parameter_to_parse_sprxpatch_offset   0x8830C
+
+	#define user_thread_prio_patch                           0x203F8
+	#define user_thread_prio_patch2                          0x20408
+
+	#define lic_patch                                        0x5622C
+	#define lic_patch_restore                                0x48240EED
+	#define ode_patch                                        0x2275EC
+	#define fix_80010009                                     0x5A6E0
+	#define fix_8001003D                                     0x56588
+	#define fix_8001003E                                     0x5664C
+	#define PATCH_JUMP                                       0x56600
+
+	#define io_rtoc_entry_1                                  0x25B8
+	#define io_sub_rtoc_entry_1                             -0x7EA0
+	#define decrypt_rtoc_entry_2                            -0x66A0
+
+	#define storage_rtoc_entry_1                             0x1DD8
+
+	#define device_event_rtoc_entry_1                        0x2048
+
+	#define time_rtoc_entry_1                               -0x7640
+	#define time_rtoc_entry_2                               -0x7648
+
+	#define thread_rtoc_entry_1                             -0x76C0
+
+	#define process_rtoc_entry_1                            -0x7800
+
+	#define bt_rtoc_entry_1                                 -0x3680
+
+	#define permissions_func_symbol                          0x3560
+	#define permissions_exception1                           0x250FC
+	#define permissions_exception2                           0xC3290
+	#define permissions_exception3                           0x204CC
+
+	#define patch_data1_offset                               0x3E2E40
+	#define patch_func2                                      0x59D80
+	#define patch_func2_offset                               0x2C
+	#define patch_func2_restore                              0x484A66C5
+	#define patch_func8_offset1                              0x564B0
+	#define patch_func8_offset2                              0x56610
+	#define patch_func8_offset2_restore                      0x48216FB5
+	#define patch_func9_offset                               0x5A6F4
+	#define mem_base2                                        0x3D90
+
+	#define thread_info_symbol                               0x37DE30
+
+	#define mmapper_flags_temp_patch                         0x70F74
+
+	#define rsx_syscall_check                                0x501138
+	#define unk_func2_unregister_service                     0x99188
+	#define unk_func3_unregister_service                     0x9DC1C
+
+	/* lv1 */
+	#define vsh_pos_in_ram                                   0x910000
+
+	/* hash */
+	#define VSH_HASH                                         0xB6B6D000002E6000
+	#define EXPLORE_PLUGIN_HASH                              0xC50D0000000EC000
+	#define EXPLORE_CATEGORY_GAME_HASH                       0xDE52D00000056000
+	#define PS1_EMU_HASH                                     0xCC2840000009B000
+	#define PS1_NETEMU_HASH                                  0xCC284000000BE000
+	#define GAME_EXT_PLUGIN_HASH                             0xCC2680000001E000
+	#define LIBFS_EXTERNAL_HASH                              0x05FD000000006000
+	#define NAS_PLUGIN_HASH                                  0xC50D000000027000
+	#define BDP_DISC_CHECK_PLUGIN_HASH                       0x9940000000003000
+	#define BDP_BDMV_HASH                                    0xCC2870000037C000
+	#define BDP_BDVD_HASH                                    0xCC28D00000437000
+	#define DOWNLOAD_PLUGIN_HASH                             0xCC26800000021000
+	#define AUTODOWNLOAD_PLUGIN_HASH                         0x6A1AF00000044000
+	#define PREMO_PLUGIN_HASH                                0x1000000000012000
+	#define PREMO_GAME_PLUGIN_HASH                           0x5BC3000000012000
+	#define BASIC_PLUGINS_HASH                               0x55F4800000020000
+	#define PSP_EMULATOR_HASH                                0xCC29B00000023000
+	#define PEMUCORELIB_HASH                                 0x40425000000C0000
+	#define EMULATOR_API_HASH                                0x8409F0000001B000
+	#define EMULATOR_DRM_HASH                                0xBBB8800000005000
+	#define EMULATOR_DRM_DATA_HASH                           0x2F3AB0000001B000
+	#define LIBSYSUTIL_SAVEDATA_PSP_HASH                     0x0DFDC00000003000
+	#define LIBAUDIO_HASH                                    0x2200600000002000
+
+	/* bdp_disccheck_plugin */
+	#define dvd_video_region_check_offset                    0x152C
+
+	/* ps1_emu */
+	#define ps1_emu_get_region_offset                        0x3E74
+
+	/* ps1_netemu */
+	#define ps1_netemu_get_region_offset                     0xA4E74
+
+	/* vsh */
+	#define vsh_text_size                                    0x6C0000
+	#define ps2tonet_patch                                   0xCA380
+	#define ps2tonet_size_patch                              0xCA374
+	#define vmode_patch_offset                               0x44ADD0
+	#define psp_drm_patch1                                   0x24A7E8
+	#define psp_drm_patch2                                   0x24B288
+	#define psp_drm_patch3                                   0x24AEC4
+	#define psp_drm_patch4                                   0x24B6D0
+	#define psp_drm_patchA                                   0x24A904
+	#define psp_drm_patchB                                   0x24B1A4
+	#define psp_drm_patchC                                   0x24A33C
+	#define psp_drm_patchD                                   0x24A8EC
+	#define psp_drm_patchE                                   0x24A8F0
+	#define psp_drm_patchF                                   0x24B2BC
+	#define psp_extra_drm_patch                              0x24D318
+
+	/* explore_plugin */
+	#define ps2_nonbw_offset                                 0xDD9BC
+	#define app_home_offset                                  0x250810
+
+	/* explore_category_game */
+	#define ps2_nonbw_offset2                                0x68324
+
+	/* game_ext_plugin */
+	#define sfo_check_offset                                 0x23B90
+	#define ps_region_error_offset                           0x68C0
+	#define remote_play_offset                               0x5FC0
+	#define ps2_nonbw_offset3                                0x17000
+
+	/* premo_plugin */
+	#define pcremote_play_offset1                            0xB6FC
+
+	/* premo_game_plugin */
+	#define pcremote_play_offset2                            0xC8FC
+
+	/* nas_plugin */
+	#define patch1_nas                                       0x2EAE4
+	#define patch2_nas                                       0x2EC48
+	#define patch3_nas                                       0x1F75C
+
+	/* basic_plugins */
+	#define ps1emu_type_check_offset                         0x20234
+	#define pspemu_path_offset                               0x4C868
+	#define psptrans_path_offset                             0x4C920
+
+	/* download_plugin */
+	#define elf_patch1_download                              0x42E2C
+	#define elf_patch2_download                              0x42E34
+	#define elf_patch3_download                              0x4D7F8
+	#define elf_patch4_download                              0x4E618
+	#define elf_patch5_download                              0x4E638
+	#define elf_patch6_download                              0x4E708
+
+	/* autodownload_plugin */
+	#define elf_patch1_autodownload                          0x82650
+	#define elf_patch2_autodownload                          0x82658
+
+	/* bdp_BDVD */
+	#define bdp_cinavia_patch                                0x15ECD0
+	#define bdp_cinavia1_patch                               0x15ECFC
+
+	/* psp_emulator */
+	#define psp_set_psp_mode_offset                          0x1C18
+
+	/* emulator_api */
+	#define psp_read                                         0x102D8
+	#define psp_read_header                                  0x1125C
+	#define psp_drm_patch5                                   0x11080
+	#define psp_drm_patch6                                   0x110B0
+	#define psp_drm_patch7                                   0x110C8
+	#define psp_drm_patch8                                   0x110CC
+	#define psp_drm_patch9                                   0x1120C
+	#define psp_drm_patch11                                  0x11210
+	#define psp_drm_patch12                                  0x11220
+	#define psp_product_id_patch1                            0x11320
+	#define psp_product_id_patch3                            0x115F8
+
+	/* pemucorelib */
+	#define psp_eboot_dec_patch                              0x5E6BC
+	#define psp_prx_patch                                    0x577D8
+	#define psp_savedata_bind_patch1                         0x7A4BC
+	#define psp_savedata_bind_patch2                         0x7A514
+	#define psp_savedata_bind_patch3                         0x7A030
+	#define psp_extra_savedata_patch                         0x87540
+	#define psp_prometheus_patch                             0x12EA28
+	#define prx_patch_call_lr                                0x5892C
+
+	/* emulator_drm */
+	#define psp_drm_tag_overwrite                            0x4C68
+	#define psp_drm_key_overwrite                            (0x27600 - 0xBE80)
+
+	/* libsysutil_savedata_psp */
+	#define psp_savedata_patch1                              0x46CC
+	#define psp_savedata_patch2                              0x46A4
+	#define psp_savedata_patch3                              0x4504
+	#define psp_savedata_patch4                              0x453C
+	#define psp_savedata_patch5                              0x4550
+	#define psp_savedata_patch6                              0x46B8
+
+	/* libfs */
+	#define aio_copy_root_offset                             0xD658
+
+	/* libaudio */
+	#define bt_usb_audio_offset                              0x1070
+#endif
+
 
 #endif /* __FIRMWARE_SYMBOLS_H_S__ */

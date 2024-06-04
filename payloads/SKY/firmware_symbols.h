@@ -293,3 +293,10 @@
 #define memcpy                  0x7E92C
 #define memset                  0x4D66C
 #endif
+
+#ifdef CFW_490C
+#define alloc                   0x64820
+#define memory_patch_func       0x297654
+#define memcpy                  0x7E928
+#define memset                  0x4D668
+#endif
